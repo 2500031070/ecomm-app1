@@ -3,15 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   const name = localStorage.getItem("username");
-  const isAdmin =
-    localStorage.getItem("isAdminLoggedIn") === "true";
 
   const handleLogout = () => {
-  localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("username");
-  localStorage.removeItem("cart");
-  localStorage.removeItem("isAdminLoggedIn"); // add this
-  navigate("/");
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("username");
+    localStorage.removeItem("cart");
+    navigate("/");
   };
 
   return (
@@ -23,12 +20,12 @@ function Header() {
         <Link to="/products">Products</Link>
         <Link to="/cart">Cart</Link>
 
-        {/* Admin Login Link */}
-        <Link to="/admin">
-          {isAdmin ? "Admin Dashboard" : "Admin Login"}
-        </Link>
+        {/* Show Admin only after user login */}
+        {name && (
+          <Link to="/admin">Admin</Link>
+        )}
 
-        {/* User Logout */}
+        {/* Logout */}
         {name && (
           <button className="logout-btn" onClick={handleLogout}>
             Logout
