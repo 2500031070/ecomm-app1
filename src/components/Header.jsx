@@ -20,12 +20,9 @@ function Header() {
         <Link to="/products">Products</Link>
         <Link to="/cart">Cart</Link>
 
-        {/* Show Admin only after user login */}
-        {name && (
-          <Link to="/admin">Admin</Link>
-        )}
+        {/* Admin always visible */}
+        <Link to="/admin">Admin</Link>
 
-        {/* Logout */}
         {name && (
           <button className="logout-btn" onClick={handleLogout}>
             Logout
