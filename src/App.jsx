@@ -1,5 +1,5 @@
 import { Routes, Route, HashRouter } from "react-router-dom";
- 
+
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -21,6 +21,9 @@ function App() {
 
         {/* ADMIN ROUTE */}
         <Route path="/admin" element={<Admin />} />
+
+        {/* Fallback Route */}
+        <Route path="*" element={<Home />} />
 
       </Routes>
     </HashRouter>
