@@ -18,7 +18,7 @@ function Header() {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/cart">Cart</Link>
-        <Link to="/Products">Products1</Link>
+        <Link to="/Products1">Products</Link>
 
         {name && (
           <button className="logout-btn" onClick={handleLogout}>
